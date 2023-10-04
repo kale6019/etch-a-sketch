@@ -1,5 +1,13 @@
 document.addEventListener("DOMContentLoaded", function(){
-    createBoard(16);
+
+    
+    let color = 'black'
+    let select = document.getElementById('select')
+    select.addEventListener('click', function(){
+    let size = getSize();
+    createBoard(size);
+   
+})
 })
 
 function createBoard(size){
@@ -12,6 +20,51 @@ function createBoard(size){
 
     for (let i = 0; i < numDivs; i++){
         let div = document.createElement('div');
+        div.addEventListener('mouseover', colorDiv)
         board.insertAdjacentElement("beforeend", div);
     }
+
 }
+
+function getSize(){
+    let input = prompt('what will be the size of the board?')
+    let message = document.querySelector('#message')
+    if(input === ""){
+        message.innerHTML = 'please provide a number'
+    }
+
+    else if(input < 0 || input > 100){
+        message.innerHTML = 'please provide a number between 0 and 100'
+    }
+    
+    else{
+        message.innerHTML = 'now you play!!!'
+        return input
+    }
+}
+
+function colorDiv() {
+    if (color === 'random') {
+      this.style.backgroundColor = getRandomColor();
+    } else if (color === 'black') {
+      this.style.backgroundColor = 'black';
+    }
+  }
+
+function setColor(colorChoice){
+
+     color = colorChoice;
+}
+
+    function getRandomColor() {
+        // Generate random values for red, green, and blue channels
+        const red = Math.floor(Math.random() * 256); // 0 to 255
+        const green = Math.floor(Math.random() * 256); // 0 to 255
+        const blue = Math.floor(Math.random() * 256); // 0 to 255
+      
+        // Create a CSS color string in the format "rgb(r, g, b)"
+        const colorRandom = `rgb(${red}, ${green}, ${blue})`;
+      
+        return colorRandom;
+      }
+
