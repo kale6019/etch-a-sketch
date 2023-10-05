@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", function(){
-
     
-    let color = 'black'
+
     let select = document.getElementById('select')
     select.addEventListener('click', function(){
     let size = getSize();
     createBoard(size);
+    let color = 'black';
+
    
 })
 })
@@ -54,6 +55,11 @@ function colorDiv() {
 function setColor(colorChoice){
 
      color = colorChoice;
+}
+
+function resetBoard(){
+let divs = document.querySelectorAll("div")
+divs.forEach((div) => div.style.backgroundColor = 'white')
 }
 
     function getRandomColor() {
