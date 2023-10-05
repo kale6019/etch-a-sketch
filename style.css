@@ -1,8 +1,18 @@
+@font-face {
+    font-family: fatalfighter;
+    src: url(./fonts/fatal_fighter/Fatal\ Fighter.ttf)
+  }
+
 body {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+h1{
+    font-family: 'fatalfighter';
+    font-size: 50px;
 }
 
 .header {
@@ -11,6 +21,8 @@ body {
     align-items: center;
     justify-content: space-evenly;
     width: 400px;
+    font-family: 'fatalfighter';
+
 }
 
 .board {
@@ -28,3 +40,28 @@ body {
     justify-content: space-between;
     width: 500px;
 }
+
+/* Style for the buttons */
+button {
+    font-family: 'fatalfighter';
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  /* Hover effect for buttons */
+  button:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+  }
+  
+  /* Reset button color on click */
+  button:active {
+    background-color: #007bff;
+  }
+  
